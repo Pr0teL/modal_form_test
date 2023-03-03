@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/modal_form_test/static/css/main.c4e0c2e7.css",
+    "main.js": "/modal_form_test/static/js/main.d8244fcb.js",
+    "index.html": "/modal_form_test/index.html",
+    "main.c4e0c2e7.css.map": "/modal_form_test/static/css/main.c4e0c2e7.css.map",
+    "main.d8244fcb.js.map": "/modal_form_test/static/js/main.d8244fcb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4e0c2e7.css",
+    "static/js/main.d8244fcb.js"
+  ]
+}
