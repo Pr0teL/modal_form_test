@@ -57,7 +57,7 @@ export function ModalForm({ setModalOpen }) {
 
     const checkText = (value, input) => {
         if (input === 'textarea') {
-            if (/^[a-zA-Zа-яА-Я0-9/(/)/!@#$%^&*-_/=/+/{/}/|/?<>,.`"'~/[/ №\s]+$/.test(value)) {
+            if (/^[a-zA-Zа-яА-Я0-9/(/)/!@#$%^&*-_/=/+/{/}/|/?<>,.`"'~/[/ №₽«»‘€£•\s]+$/.test(value)) {
                 setFormData({ ...FormData, text: value, text_valid: "success" });
             }
             else {
@@ -109,8 +109,9 @@ export function ModalForm({ setModalOpen }) {
                             styles.input_default} style={{ height: "70px" }}></textarea>
                     {FormData.text_valid === 'err' && <p className={styles.p_err}>Error</p>}
                 </div>
-                <button disabled={!validForm} onClick={() => {
+                <button type="button" disabled={!validForm} onClick={() => {
                     alert(`Форма успешно отправлена \n Данные: \n${JSON.stringify(sendData)}`)
+                    setModalOpen()
                 }} className={validForm ? "form_button" : "form_button_disable" }>Send Form</button>
             </form>
         </div>
