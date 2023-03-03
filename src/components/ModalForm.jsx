@@ -42,8 +42,8 @@ export function ModalForm({ setModalOpen }) {
         const phoneNumber = value.replace(/\D/g, '');
         const formatedPhone = (phoneNumber) => {
           if (phoneNumber.length < 5) return phoneNumber;
-          if (phoneNumber.length <= 8) return `+${phoneNumber.slice(0, 1)} (${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4)}`;
-          return `+${phoneNumber.slice(0, 1)} (${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 11)}`;
+          if (phoneNumber.length <= 9) return `+${phoneNumber.slice(0, 1)} (${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4)}`;
+          return `+${phoneNumber.slice(0, 1)} (${phoneNumber.slice(1, 4)}) ${phoneNumber.slice(4, 7)}-${phoneNumber.slice(7, 9)}-${phoneNumber.slice(9, 11)}`;
         };
         
         const formattedNumber = formatedPhone(phoneNumber);
@@ -57,7 +57,7 @@ export function ModalForm({ setModalOpen }) {
 
     const checkText = (value, input) => {
         if (input === 'textarea') {
-            if (/^[a-zA-Zа-яА-Я., ]+$/.test(value)) {
+            if (/^[a-zA-Zа-яА-Я0-9/(/)/!@#$%^&*-_/=/+/{/}/|/?<>,.`"'~/[/ №\s]+$/.test(value)) {
                 setFormData({ ...FormData, text: value, text_valid: "success" });
             }
             else {
@@ -93,7 +93,7 @@ export function ModalForm({ setModalOpen }) {
                 
                 <div>
                     <p>Phone</p>
-                    <input maxLength={17} value={FormData.phone}
+                    <input maxLength={18} value={FormData.phone}
                         onChange={e =>  getFormatPhone(e.target.value)} className={FormData.phone_valid === 'err' ?
                         styles.input_err : FormData.phone_valid === 'success' ?
                             styles.input_success :
