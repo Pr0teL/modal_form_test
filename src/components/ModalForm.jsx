@@ -57,7 +57,7 @@ export function ModalForm({ setModalOpen }) {
 
     const checkText = (value, input) => {
         if (input === 'textarea') {
-            if (/^[a-zA-Zа-яА-Я0-9/(/)/!@#$%^&*-_/=/+/{/}/|/?<>,.`"'~/[/ №₽«»‘€£•\s]+$/.test(value)) {
+            if (/^[a-zA-Zа-яА-Я0-9/(/)/!@#$%^&*-_/=/+/{/}/|/?<>,.`"'~/[/ №₽«»‘€£•’\s]+$/.test(value)) {
                 setFormData({ ...FormData, text: value, text_valid: "success" });
             }
             else {
